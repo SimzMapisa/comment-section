@@ -1,0 +1,129 @@
+.comment-container {
+    position: relative;
+    background-color: var(--white);
+    padding: 14px 12px 14px 12px;
+    margin: 20px 0;
+    -o-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.vote {
+    background-color: var(--very-light-gray);
+    display: flex;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 4px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    order: 1;
+}
+
+.add, .remove, .number {
+    margin: 3px 6px;
+    font-size: 1.1rem;
+}
+
+.add, .remove {
+    color: var(--grayish-blue);
+    font-weight: var(--font-w-bold);
+    cursor: pointer;
+}
+
+.vote .number {
+    color: var(--dark-blue);
+    font-weight: var(--font-w-reg);
+    font-size: 1.1rem;
+}
+
+.comment-body p {
+    color: var(--grayish-blue);
+    font-weight: var(--font-w-reg);
+    line-height: 130%;
+}
+
+.comment-header .reply-btn {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+}
+
+.reply-btn span {
+    color: var(--dark-blue);
+}
+
+.avatar-name {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-name img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.avatar-name .name {
+    color: var(--dark-blue);
+    font-weight: var(--font-w-bold);
+    font-size: 1.1rem;
+}
+
+.avatar-name .time {
+    color: var(--grayish-blue);
+    font-weight: var(--font-w-reg);
+    font-size: 1rem;
+    margin-left: 8px;
+}
+
+
+/* Media Queries */
+@media screen and (min-width: 580px) {
+    .comment-container {
+        padding: 14px 16px 14px 16px;
+        flex-direction: row;
+    }
+
+    .comment {
+        order: 1;
+    }
+
+    .vote {
+        margin-right: 24px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 8px;
+        height: fit-content;
+    }
+
+    .comment-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .comment-header .reply-btn {
+        position: static;
+        /* right: 16px; */
+        /* bottom: 16px; */
+    }
+
+    .vote .number {
+        margin: 10px 0;
+    }
+
+    .add, .remove {
+        font-size: 18px;
+    }
+
+}
