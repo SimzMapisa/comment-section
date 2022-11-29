@@ -1,37 +1,36 @@
 import React from 'react';
 import './style.css';
-import reply from '../../assets/icon-reply.svg';
-import amy from '../../assets/avatars/image-amyrobson.webp';
 import Vote from '../vote/vote';
+import CommentHeader from '../comment-header/commentHeader';
+import Reply from '../reply/reply';
 
-const Comment = () => {
+const Comment = (data) => {
+	// destructure the data
+	const { comments, currentUser } = data.data;
+
+	console.log(comments);
 	return (
 		<>
-			<div className='comment-container'>
-				<Vote />
-				<div className='comment'>
-					<div className='comment-header'>
-						<div className='user'>
-							<div className='avatar-name'>
-								<img src={amy} alt='' />
-								<span className='name'>amyrobson</span>
-								<span className='time'>1 month ago</span>
+			{comments.map((comment) => {
+				return (
+					<>
+						<div className='comment-container' key={comment.id}>
+							<Vote vote={comment.score} />
+							<div className='comment'>
+								<CommentHeader comment={comment} currentUser={currentUser} />
+								<div className='comment-body'>
+									<p>{comment.content}</p>
+								</div>
 							</div>
 						</div>
-						<div className='reply-btn'>
-							<img src={reply} alt='mybtn' /> <span>Reply</span>
+						<div className='replies' key={comment.replies.id}>
+							{comment.replies.length !== 0 ? (
+								<Reply comment={comment} />
+							) : null}
 						</div>
-					</div>
-					<div className='comment-body'>
-						<p>
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-							Dignissimos similique sit nostrum? Accusamus veritatis
-							accusantium, illo voluptatibus nostrum, officia dolores tempora
-							sapiente ipsa autem voluptates qui non, aliquid officiis dicta.
-						</p>
-					</div>
-				</div>
-			</div>
+					</>
+				);
+			})}
 		</>
 	);
 };
