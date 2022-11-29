@@ -1,0 +1,13 @@
+.reply-wrapper {
+    margin-left: 50px;
+    padding-left: 30px;
+    border-left: 3px solid var(--light-gray);
+}
+
+.replyingto {
+    color: var(--moderate-blue);
+    font-weight: var(--font-w-bold);
+    font-size: 1.1rem;
+    margin-right: 5px;
+
+}
