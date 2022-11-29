@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-const Vote = () => {
-	const [voteCount, setVoteCount] = useState(0);
+const Vote = (vote) => {
+	console.log(vote.vote);
+	const [score, setScore] = useState(vote.vote);
+	const [voteCount, setVoteCount] = useState(score);
 
 	// create a function to increment votecount
 	const incrementVote = () => {
