@@ -3,27 +3,23 @@ import CommentHeader from '../comment-header/commentHeader';
 import Vote from '../vote/vote';
 import './reply.css';
 
-const Reply = ({ comment }) => {
-	const { replies } = comment;
-	console.log(replies);
+const Reply = () => {
 	return (
 		<div className='reply-wrapper'>
-			{replies.map((reply) => {
-				return (
-					<div className='comment-container reply-container'>
-						<Vote vote={reply.score} />
-						<div className='comment reply'>
-							<CommentHeader comment={reply} />
-							<div className='comment-body'>
-								<p>
-									<span className='replyingto'>@{reply.replyingTo}</span>
-									{reply.content}
-								</p>
-							</div>
-						</div>
+			<div className='comment-container reply-container'>
+				<Vote />
+				<div className='comment reply'>
+					<CommentHeader />
+					<div className='comment-body'>
+						<p>
+							<span className='replyingto'>@simba</span>
+							Impressive! Though it seems the drag feature could be improved.
+							But overall it looks incredible. You've nailed the design and the
+							responsiveness at various breakpoints works really well.
+						</p>
 					</div>
-				);
-			})}
+				</div>
+			</div>
 		</div>
 	);
 };

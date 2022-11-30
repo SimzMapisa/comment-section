@@ -1,36 +1,24 @@
 import React, { useState, useEffect } from 'react';
 
-const Vote = (vote) => {
-	console.log(vote.vote);
-	const [score, setScore] = useState(vote.vote);
-	const [voteCount, setVoteCount] = useState(score);
-
+const Vote = () => {
 	// create a function to increment votecount
-	const incrementVote = () => {
-		setVoteCount(voteCount + 1);
-	};
+	const incrementVote = () => {};
 
 	// create a function to decrement votecount
-	const decrementVote = () => {
-		setVoteCount(voteCount - 1);
-	};
+	const decrementVote = () => {};
 
-	useEffect(() => {
-		setVoteCount(voteCount);
-	}, []);
+	useEffect(() => {}, []);
 
 	return (
-		<>
-			<div className='vote'>
-				<span className='add' onClick={incrementVote}>
-					+
-				</span>
-				<span className='number'>{voteCount}</span>
-				<span className='remove' onClick={decrementVote}>
-					-
-				</span>
-			</div>
-		</>
+		<div className='vote'>
+			<span className='add' onClick={incrementVote}>
+				+
+			</span>
+			<span className='number'>2</span>
+			<span className='remove' onClick={decrementVote}>
+				-
+			</span>
+		</div>
 	);
 };
 

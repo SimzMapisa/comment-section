@@ -2,35 +2,34 @@ import React from 'react';
 import './style.css';
 import Vote from '../vote/vote';
 import CommentHeader from '../comment-header/commentHeader';
+import { useContext } from 'react';
 import Reply from '../reply/reply';
+import { CommentContext } from '../../Context/commentContext';
 
-const Comment = (data) => {
-	// destructure the data
-	const { comments, currentUser } = data.data;
-
-	console.log(comments);
+const Comment = () => {
+	const { comments, currentUser } = useContext(CommentContext);
+	console.log(currentUser);
 	return (
 		<>
-			{comments.map((comment) => {
-				return (
-					<>
-						<div className='comment-container' key={comment.id}>
-							<Vote vote={comment.score} />
-							<div className='comment'>
-								<CommentHeader comment={comment} currentUser={currentUser} />
-								<div className='comment-body'>
-									<p>{comment.content}</p>
-								</div>
+			{comments.map((comment) => (
+				<div key={comment.id}>
+					<div className='comment-container'>
+						<Vote />
+						<div className='comment'>
+							<CommentHeader />
+							<div className='comment-body'>
+								<p>
+									Impressive! Though it seems the drag feature could be
+									improved. But overall it looks incredible. You've nailed the
+									design and the responsiveness at various breakpoints works
+									really well.
+								</p>
 							</div>
 						</div>
-						<div className='replies' key={comment.replies.id}>
-							{comment.replies.length !== 0 ? (
-								<Reply comment={comment} />
-							) : null}
-						</div>
-					</>
-				);
-			})}
+					</div>
+					<div className='replies'></div>
+				</div>
+			))}
 		</>
 	);
 };
