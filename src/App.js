@@ -1,13 +1,14 @@
 import React from 'react';
 import Comment from './components/comment/comment';
-
-import data from './data.json';
+import CommentContextProvider from './Context/commentContext';
 
 const App = () => {
 	return (
-		<div className='container'>
-			<Comment data={data} />
-		</div>
+		<CommentContextProvider>
+			<div className='container'>
+				<Comment />
+			</div>
+		</CommentContextProvider>
 	);
 };
 
